@@ -246,7 +246,7 @@ const Button = ({ children, variant = 'primary', className = '', href, ...props 
     primary: "border-transparent text-white bg-green-600 hover:bg-green-500 focus:ring-green-500 shadow-[0_0_15px_rgba(16,185,129,0.3)]",
     secondary: "border-blue-600 text-blue-300 bg-blue-800 hover:bg-blue-700 focus:ring-blue-500",
     outline: "border-green-500 text-green-400 bg-transparent hover:bg-green-500/10 focus:ring-green-500",
-    urgent: "border-transparent text-white bg-red-600 hover:bg-red-500 focus:ring-red-500 shadow-lg animate-pulse",
+    urgent: "border-transparent text-white bg-purple-600 hover:bg-purple-500 focus:ring-purple-500 shadow-lg",
   };
 
   if (href) {
@@ -694,7 +694,11 @@ export default function App() {
               </div>
             </div>
 
-            <div className="flex items-center md:hidden">
+            <div className="flex items-center gap-2 md:hidden">
+              <a href="tel:7204454357" className="inline-flex items-center px-5 py-3 bg-purple-600 text-white text-base font-bold rounded-lg">
+                <Phone className="h-4 w-4 mr-1" />
+                CALL
+              </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-md text-blue-400 hover:text-white hover:bg-blue-800"
@@ -785,7 +789,7 @@ export default function App() {
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                           <CheckCircle className="h-4 w-4 text-green-400" />
                         </div>
-                        <span className="text-blue-300">ASE Certified • Factory-Trained Technicians</span>
+                        <span className="text-blue-300">Colorado's Most Experienced Hybrid Team</span>
                       </div>
                     </div>
 
