@@ -740,7 +740,7 @@ export default function App() {
           <div className="flex justify-between h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={navigateToHome}>
-                <img src="/logo.svg" alt="Mile Hybrid Automotive - Denver Hybrid and EV Repair" width={80} height={80} className="h-20 w-auto" />
+                <img src="/logo.svg" alt="Mile Hybrid Automotive - Denver Hybrid and EV Repair" width={80} height={80} className="h-12 md:h-20 w-auto" />
               </div>
             </div>
             
