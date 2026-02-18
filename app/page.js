@@ -320,13 +320,37 @@ const BookingPage = ({ onBack }) => {
     urgency: 'routine'
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setIsSubmitted(true);
-      window.scrollTo(0, 0);
-    }, 800);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'da233cfe-3a64-4ec0-adb9-11c87dcc2b3f',
+          subject: `${formData.urgency === 'urgent' ? '🚨 URGENT' : '📅'} New Booking: ${formData.year} ${formData.make} ${formData.model}`,
+          from_name: formData.name,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          vehicle: `${formData.year} ${formData.make} ${formData.model}`,
+          issue: formData.issue,
+          preferred_date: formData.date,
+          urgency: formData.urgency,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setIsSubmitted(true);
+        window.scrollTo(0, 0);
+      }
+    } catch (error) {
+      alert('Something went wrong. Please call us at (720) 445-4357 to book your appointment.');
+    }
+    setIsSubmitting(false);
   };
 
   if (isSubmitted) {
@@ -535,8 +559,8 @@ const BookingPage = ({ onBack }) => {
             </div>
 
             <div className="pt-4">
-              <Button type="submit" className="w-full text-lg py-4 font-bold">
-                REQUEST APPOINTMENT →
+              <Button type="submit" className="w-full text-lg py-4 font-bold" disabled={isSubmitting}>
+                {isSubmitting ? 'SENDING...' : 'REQUEST APPOINTMENT →'}
               </Button>
               <p className="text-center text-blue-500 text-sm mt-4">
                 💳 No payment required now • ⏱️ Confirmed within 2 hours • 🔒 Your info is secure
