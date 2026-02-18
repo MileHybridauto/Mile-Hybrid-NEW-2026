@@ -697,7 +697,7 @@ export default function App() {
             <div className="flex items-center gap-2 md:hidden">
               <a href="tel:7204454357" className="inline-flex items-center px-5 py-3 bg-purple-600 text-white text-base font-bold rounded-lg">
                 <Phone className="h-4 w-4 mr-1" />
-                CALL
+                CALL/TEXT
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -807,7 +807,7 @@ export default function App() {
                         href="tel:7204454357"
                       >
                         <Phone className="mr-2 h-5 w-5" />
-                        CALL (720) 445-4357
+                        CALL OR TEXT (720) 445-4357
                       </Button>
                     </div>
                     
