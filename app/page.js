@@ -179,12 +179,6 @@ const whyChooseUs = [
   }
 ];
 
-const pricingComparison = [
-  { service: "Hybrid Battery", dealer: "$3,500-4,500", us: "$1,895-2,995", savings: "Save $1,000+" },
-  { service: "Brake Actuator", dealer: "$1,800-2,200", us: "$1,295", savings: "Save $500+" },
-  { service: "60k Service", dealer: "$450-650", us: "$295", savings: "Save $200+" },
-];
-
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
@@ -1780,7 +1774,7 @@ export default function App() {
                 </h2>
                 
                 <p className="text-xl text-blue-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                  Ignoring hybrid system warnings can lead to expensive failures. Our $139 diagnostic finds the real problem so you can make informed decisions.
+                  Ignoring hybrid system warnings can lead to expensive failures. Our expert diagnostic finds the real problem so you can make informed decisions.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
