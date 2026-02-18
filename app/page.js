@@ -735,8 +735,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-blue-900 font-sans text-blue-100 selection:bg-green-500/30">
       
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
-
       {/* Sticky Top Banner */}
       <div className="bg-red-600 text-white py-2 text-center text-sm font-medium sticky top-0 z-50">
         ⚡ DENVER'S OLDEST HYBRID SHOP - SERVING YOU SINCE 2008 • Same-Day Emergency Service: <a href="tel:7204454357" className="underline font-bold">(720) 445-4357</a>
@@ -748,7 +746,7 @@ export default function App() {
           <div className="flex justify-between h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={navigateToHome}>
-                <img src="/logo.svg" alt="Mile Hybrid Automotive" className="h-20 w-auto" />
+                <img src="/logo.svg" alt="Mile Hybrid Automotive - Denver Hybrid and EV Repair" width={80} height={80} className="h-20 w-auto" />
               </div>
             </div>
             
@@ -835,7 +833,7 @@ export default function App() {
                   <div className="lg:w-1/2 mb-10 lg:mb-0">
                     
                     <div className="flex flex-wrap items-center gap-3 mb-6 border-t border-blue-700 pt-6">
-                      <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-36 w-auto carfax-glow" />
+                      <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center - Mile Hybrid Automotive Denver" width={144} height={144} className="h-36 w-auto carfax-glow" />
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
                         <Award className="h-5 w-5" />
                         Denver's Oldest Hybrid Shop
@@ -883,8 +881,25 @@ export default function App() {
                       </div>
                     </div>
 
+                    {/* Price Comparison Badge */}
+                    <div className="mt-8 inline-flex items-center gap-4 bg-blue-800/70 backdrop-blur-sm border border-blue-700 rounded-xl p-4">
+                      <div className="text-center px-3">
+                        <div className="text-xs text-blue-400 uppercase tracking-wide">Dealer</div>
+                        <div className="text-lg font-bold text-red-400 line-through">$3,500+</div>
+                      </div>
+                      <ArrowRight className="h-5 w-5 text-green-400 flex-shrink-0" />
+                      <div className="text-center px-3">
+                        <div className="text-xs text-green-400 uppercase tracking-wide font-bold">Our Price</div>
+                        <div className="text-lg font-bold text-green-400">$1,895</div>
+                      </div>
+                      <div className="border-l border-blue-700 pl-4">
+                        <div className="text-xs text-blue-300">Hybrid Battery</div>
+                        <div className="text-sm font-bold text-white">Save $1,600+</div>
+                      </div>
+                    </div>
+
                     <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                      <Button 
+                      <Button
                         className="h-16 text-lg font-bold px-12 shadow-2xl hover:scale-105 transition-transform"
                         onClick={navigateToBooking}
                       >
@@ -920,7 +935,9 @@ export default function App() {
                        <div className="relative rounded-xl overflow-hidden aspect-video">
                           <img
                             src="/hero-shop.jpg"
-                            alt="Mile Hybrid Automotive technicians working on a hybrid battery replacement"
+                            alt="Mile Hybrid Automotive technicians working on a hybrid battery replacement in Denver CO"
+                            width={800}
+                            height={450}
                             className="object-cover w-full h-full"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent"></div>
@@ -931,7 +948,7 @@ export default function App() {
                                  <p className="text-green-300 text-sm">Denver's oldest hybrid shop</p>
                                </div>
                                <div className="text-right">
-                                 <div className="text-3xl font-bold text-white">25k+</div>
+                                 <div className="text-3xl font-bold text-white"><CountUp end={25000} suffix="+" /></div>
                                  <div className="text-xs text-blue-300">Cars Serviced</div>
                                </div>
                              </div>
@@ -941,7 +958,7 @@ export default function App() {
                      
                      {/* Social Proof Banner */}
                      <div className="mt-4 flex items-center justify-center gap-6 gradient-border bg-blue-800/70 backdrop-blur-sm rounded-xl p-6">
-                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-16 w-auto carfax-glow" />
+                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center - Mile Hybrid Automotive" width={64} height={64} className="h-16 w-auto carfax-glow" />
                        <div className="h-8 w-px bg-blue-700"></div>
                        <div className="text-center">
                          <div className="text-yellow-400 flex justify-center gap-1 mb-1">
