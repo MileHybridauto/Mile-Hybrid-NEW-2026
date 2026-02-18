@@ -317,7 +317,7 @@ const Button = ({ children, variant = 'primary', className = '', href, ...props 
 };
 
 const FeatureCard = ({ icon: Icon, title, description, badge }) => (
-  <article className="group relative p-6 backdrop-blur-sm bg-blue-800/60 border border-blue-700 rounded-xl hover:border-green-500/50 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] h-full flex flex-col">
+  <article className="group relative p-6 backdrop-blur-sm bg-blue-800/60 border border-white/10 rounded-xl hover:border-white/30 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] h-full flex flex-col">
     <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
       <Icon className="h-20 w-20 text-green-500" />
     </div>
@@ -337,7 +337,7 @@ const FeatureCard = ({ icon: Icon, title, description, badge }) => (
 );
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => (
-  <div className="border-b border-blue-700" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+  <div className="border-b border-white/10" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
     <button 
       className="w-full py-6 flex justify-between items-center text-left focus:outline-none group"
       onClick={onClick}
@@ -442,7 +442,7 @@ const BookingPage = ({ onBack }) => {
         </button>
 
         <div className="bg-blue-800 border border-blue-700 rounded-2xl shadow-xl overflow-hidden">
-          <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-8 border-b border-blue-700">
+          <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-8 border-b border-white/10">
             <h1 className="text-3xl font-extrabold text-white">Schedule Your Service</h1>
             <p className="mt-2 text-blue-300">
               Fill out the form below and our team will get back to you as soon as possible.
@@ -487,7 +487,7 @@ const BookingPage = ({ onBack }) => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <h3 className="text-lg font-medium text-green-400 border-b border-blue-700 pb-2">1. Contact Information</h3>
+              <h3 className="text-lg font-medium text-green-400 border-b border-white/10 pb-2">1. Contact Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-blue-300 mb-2">Full Name *</label>
@@ -533,7 +533,7 @@ const BookingPage = ({ onBack }) => {
 
             {/* Vehicle Info */}
             <div className="space-y-6">
-              <h3 className="text-lg font-medium text-green-400 border-b border-blue-700 pb-2">2. Vehicle Details</h3>
+              <h3 className="text-lg font-medium text-green-400 border-b border-white/10 pb-2">2. Vehicle Details</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <label htmlFor="year" className="block text-sm font-medium text-blue-300 mb-2">Year *</label>
@@ -581,7 +581,7 @@ const BookingPage = ({ onBack }) => {
 
             {/* Issue Description */}
             <div className="space-y-6">
-              <h3 className="text-lg font-medium text-green-400 border-b border-blue-700 pb-2">3. Service Details</h3>
+              <h3 className="text-lg font-medium text-green-400 border-b border-white/10 pb-2">3. Service Details</h3>
               <div>
                 <label htmlFor="issue" className="block text-sm font-medium text-blue-300 mb-2">What service do you need? *</label>
                 <div className="relative">
@@ -735,7 +735,7 @@ export default function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-blue-900/95 backdrop-blur-md sticky top-8 z-40 border-b border-blue-800">
+      <nav className="bg-blue-900/95 backdrop-blur-md sticky top-8 z-40 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <div className="flex items-center">
@@ -788,7 +788,7 @@ export default function App() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-blue-900 border-t border-blue-800">
+          <div className="md:hidden bg-blue-900 border-t border-white/10">
             <div className="px-4 pt-2 pb-6 space-y-2">
               {currentView === 'home' ? (
                 <>
@@ -826,7 +826,7 @@ export default function App() {
                 <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:gap-12">
                   <div className="lg:w-1/2 mb-10 lg:mb-0">
                     
-                    <div className="flex flex-wrap items-center gap-3 mb-6 border-t border-blue-700 pt-6">
+                    <div className="flex flex-wrap items-center gap-3 mb-6 border-t border-white/10 pt-6">
                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center - Mile Hybrid Automotive Denver" width={144} height={144} className="h-36 w-auto carfax-glow" />
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
                         <Award className="h-5 w-5" />
@@ -924,8 +924,8 @@ export default function App() {
                   </div>
                   
                   <div className="lg:w-1/2">
-                     <div className="relative rounded-2xl bg-blue-800 border border-blue-700 p-2 shadow-2xl">
-                       <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-600 rounded-2xl blur opacity-20"></div>
+                     <div className="relative rounded-2xl bg-blue-800 border-2 border-white/20 p-2 shadow-2xl">
+                       <div className="absolute -inset-1 bg-gradient-to-r from-white/10 to-green-600/20 rounded-2xl blur opacity-30"></div>
                        <div className="relative rounded-xl overflow-hidden aspect-video">
                           <img
                             src="/hero-shop.jpg"
@@ -982,8 +982,11 @@ export default function App() {
               </div>
             </header>
 
+            {/* White divider */}
+            <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+
             {/* Transparent Pricing Section */}
-            <section id="pricing" className="py-32 bg-blue-800 border-y border-blue-700">
+            <section id="pricing" className="py-32 bg-blue-800 border-y border-white/10">
               <FadeInSection>
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
@@ -1059,7 +1062,7 @@ export default function App() {
             </section>
 
             {/* Expertise & Credentials Section - NEW FOR AI SEARCH */}
-            <section className="py-28 bg-blue-800 border-y border-blue-700">
+            <section className="py-28 bg-blue-800 border-y border-white/10">
               <FadeInSection>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
@@ -1169,7 +1172,7 @@ export default function App() {
             </section>
 
             {/* How We Work Section - NEW FOR AI SEARCH */}
-            <section id="how-we-work" className="py-28 bg-blue-900 border-y border-blue-700">
+            <section id="how-we-work" className="py-28 bg-blue-900 border-y border-white/10">
               <FadeInSection>
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
@@ -1234,7 +1237,7 @@ export default function App() {
             </section>
 
             {/* Services Section - ENHANCED */}
-            <section id="services" className="py-28 bg-blue-800 border-y border-blue-700">
+            <section id="services" className="py-28 bg-blue-800 border-y border-white/10">
               <FadeInSection>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
@@ -1247,7 +1250,7 @@ export default function App() {
                 <div className="space-y-8">
                   {detailedServiceCategories.map((cat, idx) => (
                     <div key={idx} className="bg-blue-900 border border-blue-700 rounded-2xl overflow-hidden">
-                      <div className="p-6 border-b border-blue-700 flex items-center justify-between bg-blue-800">
+                      <div className="p-6 border-b border-white/10 flex items-center justify-between bg-blue-800">
                         <div className="flex items-center gap-3">
                           <cat.icon className="h-6 w-6 text-green-400" />
                           <h3 className="text-2xl font-bold text-white">{cat.title}</h3>
@@ -1295,7 +1298,7 @@ export default function App() {
             </section>
 
             {/* Common Search Queries Section - FOR AI SEARCH OPTIMIZATION */}
-            <section className="py-16 bg-blue-900 border-y border-blue-700">
+            <section className="py-16 bg-blue-900 border-y border-white/10">
               <FadeInSection>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
@@ -1354,7 +1357,7 @@ export default function App() {
             </section>
 
             {/* Comparison Section - NEW FOR AI SEARCH */}
-            <section className="py-20 bg-blue-900 border-b border-blue-700">
+            <section className="py-20 bg-blue-900 border-b border-white/10">
               <FadeInSection>
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
@@ -1365,7 +1368,7 @@ export default function App() {
                 <div className="space-y-8">
                   {/* Comparison 1 */}
                   <div className="bg-blue-800 border border-blue-700 rounded-2xl overflow-hidden">
-                    <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-6 border-b border-blue-700">
+                    <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-6 border-b border-white/10">
                       <h3 className="text-2xl font-bold text-white">OEM vs Reconditioned Hybrid Battery: Which Should I Choose?</h3>
                     </div>
                     <div className="p-8">
@@ -1427,7 +1430,7 @@ export default function App() {
 
                   {/* Comparison 2 */}
                   <div className="bg-blue-800 border border-blue-700 rounded-2xl overflow-hidden">
-                    <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-6 border-b border-blue-700">
+                    <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-6 border-b border-white/10">
                       <h3 className="text-2xl font-bold text-white">Dealership vs Mile Hybrid: What's Actually Different?</h3>
                     </div>
                     <div className="p-8">
@@ -1441,42 +1444,42 @@ export default function App() {
                             </tr>
                           </thead>
                           <tbody className="text-blue-300">
-                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
+                            <tr className="border-b border-white/10/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Diagnostic Software</td>
                               <td className="py-4">Toyota Techstream (OEM)</td>
                               <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />Same OEM software</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-white/10/50">
                               <td className="py-4 font-medium">Technician Training</td>
                               <td className="py-4">Factory-trained</td>
                               <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />Factory-trained + ASE + 17 years hybrid focus</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
+                            <tr className="border-b border-white/10/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Parts Used</td>
                               <td className="py-4">100% OEM Toyota/Lexus</td>
                               <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />OEM preferred, OE-quality alternatives (you choose)</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-white/10/50">
                               <td className="py-4 font-medium">Hybrid Battery Cost</td>
                               <td className="py-4">Full dealer markup</td>
                               <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />Save 30-50% vs dealer</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
+                            <tr className="border-b border-white/10/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Diagnostic Fee</td>
                               <td className="py-4">Higher fee, never waived</td>
                               <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />Lower fee, competitive pricing</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-white/10/50">
                               <td className="py-4 font-medium">Wait Time</td>
                               <td className="py-4">1-2 weeks for appointment</td>
                               <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />3-5 days (often same-day for urgent)</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
+                            <tr className="border-b border-white/10/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Loaner Vehicle</td>
                               <td className="py-4">Rental fee charged</td>
                               <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />Available for qualifying repairs</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-white/10/50">
                               <td className="py-4 font-medium">Labor Warranty</td>
                               <td className="py-4">12 months / 12,000 miles</td>
                               <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />LIFETIME (as long as you own the car)</td>
@@ -1499,7 +1502,7 @@ export default function App() {
 
                   {/* Comparison 3 */}
                   <div className="bg-blue-800 border border-blue-700 rounded-2xl overflow-hidden">
-                    <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-6 border-b border-blue-700">
+                    <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-6 border-b border-white/10">
                       <h3 className="text-2xl font-bold text-white">P0A80 Code: What Does It Actually Mean?</h3>
                     </div>
                     <div className="p-8">
@@ -1571,7 +1574,7 @@ export default function App() {
             </section>
 
             {/* Reviews Section - ENHANCED */}
-            <section className="py-28 bg-blue-900 border-b border-blue-700">
+            <section className="py-28 bg-blue-900 border-b border-white/10">
               <FadeInSection>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
@@ -1596,7 +1599,7 @@ export default function App() {
                     <p className="text-blue-300 italic mb-6 leading-relaxed">
                       "Eric and the team at MileHybrid are the best! They keep me and my little blue Prius on the road (at <strong>311,000 miles</strong>). They are professional and I trust their guidance... I never feel like I am being 'sold', they do what is needed at a reasonable price."
                     </p>
-                    <div className="flex items-center justify-between border-t border-blue-700 pt-4">
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
                       <span className="font-bold text-white">Verified Customer</span>
                       <span className="text-xs text-blue-500 uppercase tracking-wide">Google Review</span>
                     </div>
@@ -1612,7 +1615,7 @@ export default function App() {
                     <p className="text-blue-300 italic mb-6 leading-relaxed">
                       "Mile Hybrid <strong>saved me over $1,000</strong> on what the dealer quoted for a hybrid battery. Same OEM part, but Eric explained all my options clearly. They even had a loaner car ready for me. This is how car service should be."
                     </p>
-                    <div className="flex items-center justify-between border-t border-blue-700 pt-4">
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
                       <span className="font-bold text-white">Prius Owner</span>
                       <span className="text-xs text-blue-500 uppercase tracking-wide">Google Review</span>
                     </div>
@@ -1628,7 +1631,7 @@ export default function App() {
                     <p className="text-blue-300 italic mb-6 leading-relaxed">
                       "Honest and friendly. The mechanic told me that while they could verify the codes... he was sure they would not bring my trip to a screeching halt. <strong>Peace of mind</strong> that Mile Hybrid team is looking out for me, not trying to upsell unnecessary repairs."
                     </p>
-                    <div className="flex items-center justify-between border-t border-blue-700 pt-4">
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4">
                       <span className="font-bold text-white">Kia Niro Owner</span>
                       <span className="text-xs text-blue-500 uppercase tracking-wide">Google Review</span>
                     </div>
@@ -1651,7 +1654,7 @@ export default function App() {
             </section>
 
             {/* FAQ Section - ENHANCED */}
-            <section id="faq" className="py-28 bg-blue-800 border-t border-blue-700" itemScope itemType="https://schema.org/FAQPage">
+            <section id="faq" className="py-28 bg-blue-800 border-t border-white/10" itemScope itemType="https://schema.org/FAQPage">
               <FadeInSection>
               <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
@@ -1683,7 +1686,7 @@ export default function App() {
             </section>
 
             {/* Location Section - ENHANCED */}
-            <section className="py-28 bg-blue-900 border-t border-blue-700">
+            <section className="py-28 bg-blue-900 border-t border-white/10">
               <FadeInSection>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -1745,8 +1748,8 @@ export default function App() {
                     </div>
                   </div>
                   
-                  <div className="h-96 w-full rounded-2xl overflow-hidden border-2 border-blue-700 shadow-2xl">
-                    <iframe 
+                  <div className="h-96 w-full rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
+                    <iframe
                       title="Mile Hybrid Automotive Location"
                       width="100%" 
                       height="100%" 
@@ -1816,7 +1819,7 @@ export default function App() {
 
       {/* Sticky Mobile CTA Bar */}
       {currentView === 'home' && (
-        <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-blue-900/95 backdrop-blur-md border-t border-blue-700 p-3 flex gap-3">
+        <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-blue-900/95 backdrop-blur-md border-t border-white/10 p-3 flex gap-3">
           <Button
             className="flex-1 py-3 text-sm font-bold"
             onClick={navigateToBooking}
@@ -1837,9 +1840,9 @@ export default function App() {
 
       {/* Footer - ENHANCED */}
       <footer className={`bg-blue-950 text-blue-400 relative ${currentView === 'home' ? 'pb-20 md:pb-0' : ''}`}>
-        {/* Green accent gradient line */}
-        <div className="h-px bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
-        <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent mt-px"></div>
+        {/* White accent gradient line */}
+        <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent mt-px"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
@@ -1900,7 +1903,7 @@ export default function App() {
             </div>
           </div>
           
-          <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
             <p>&copy; {new Date().getFullYear()} Mile Hybrid Automotive. All rights reserved.</p>
             <p className="mt-4 md:mt-0 text-blue-600">
               Built for hybrid and EV owners who demand expertise and value.
