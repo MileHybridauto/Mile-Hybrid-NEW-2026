@@ -680,12 +680,12 @@ export default function App() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
       {/* Sticky Top Banner */}
-      <div className="bg-purple-600 text-white py-2 text-center text-sm font-medium sticky top-0 z-50">
+      <div className="bg-red-600 text-white py-2 text-center text-sm font-medium sticky top-0 z-50">
         ⚡ DENVER'S OLDEST HYBRID SHOP - SERVING YOU SINCE 2008 • Same-Day Emergency Service: <a href="tel:7204454357" className="underline font-bold">(720) 445-4357</a>
       </div>
 
       {/* Navigation */}
-      <nav className="bg-blue-300 backdrop-blur-md sticky top-8 z-40 border-b border-blue-400">
+      <nav className="bg-blue-900/95 backdrop-blur-md sticky top-8 z-40 border-b border-blue-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <div className="flex items-center">
@@ -769,7 +769,7 @@ export default function App() {
                 <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:gap-12">
                   <div className="lg:w-1/2 mb-10 lg:mb-0">
                     
-                    <div className="flex flex-wrap items-center gap-3 mb-6">
+                    <div className="flex flex-wrap items-center gap-3 mb-6 border-t border-blue-700 pt-6">
                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-36 w-auto" />
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
                         <Award className="h-5 w-5" />
