@@ -881,20 +881,20 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Price Comparison Badge */}
+                    {/* Savings Badge */}
                     <div className="mt-8 inline-flex items-center gap-4 bg-blue-800/70 backdrop-blur-sm border border-blue-700 rounded-xl p-4">
                       <div className="text-center px-3">
-                        <div className="text-xs text-blue-400 uppercase tracking-wide">Dealer</div>
-                        <div className="text-lg font-bold text-red-400 line-through">$3,500+</div>
+                        <div className="text-xs text-blue-400 uppercase tracking-wide">Dealership</div>
+                        <div className="text-lg font-bold text-red-400">Full Price</div>
                       </div>
                       <ArrowRight className="h-5 w-5 text-green-400 flex-shrink-0" />
                       <div className="text-center px-3">
-                        <div className="text-xs text-green-400 uppercase tracking-wide font-bold">Our Price</div>
-                        <div className="text-lg font-bold text-green-400">$1,895</div>
+                        <div className="text-xs text-green-400 uppercase tracking-wide font-bold">Mile Hybrid</div>
+                        <div className="text-lg font-bold text-green-400">30-50% Less</div>
                       </div>
                       <div className="border-l border-blue-700 pl-4">
-                        <div className="text-xs text-blue-300">Hybrid Battery</div>
-                        <div className="text-sm font-bold text-white">Save $1,600+</div>
+                        <div className="text-xs text-blue-300">Same OEM Parts</div>
+                        <div className="text-sm font-bold text-white">Same Quality</div>
                       </div>
                     </div>
 
