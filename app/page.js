@@ -934,8 +934,19 @@ export default function App() {
                             height={450}
                             className="object-cover w-full h-full"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/95 via-blue-900/50 to-transparent"></div>
                           <div className="absolute bottom-0 left-0 right-0 p-6">
+                             {/* Big Rating Display */}
+                             <div className="flex items-center justify-center gap-3 mb-4">
+                               <div className="text-6xl font-extrabold text-white">4.9</div>
+                               <div>
+                                 <div className="text-yellow-400 flex gap-0.5 mb-1">
+                                   {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                                 </div>
+                                 <div className="text-sm text-blue-300 font-medium">220+ Google Reviews</div>
+                               </div>
+                               <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated" width={56} height={56} className="h-14 w-auto ml-2 carfax-glow" />
+                             </div>
                              <div className="flex items-center justify-between">
                                <div>
                                  <h3 className="text-white font-bold text-xl">17+ Years of Excellence</h3>
