@@ -742,12 +742,13 @@ export default function App() {
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
               
               <div className="max-w-7xl mx-auto relative z-10">
-                <div className="pt-16 pb-24 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:gap-12">
+                <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:gap-12">
                   <div className="lg:w-1/2 mb-10 lg:mb-0">
                     
-                    <div className="flex flex-wrap gap-3 mb-6">
-                      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-xs font-bold uppercase tracking-wide">
-                        <Award className="h-4 w-4" />
+                    <div className="flex flex-wrap items-center gap-3 mb-6">
+                      <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-36 w-auto" />
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
+                        <Award className="h-5 w-5" />
                         Denver's Oldest Hybrid Shop
                       </span>
                       <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-900/30 border border-yellow-500/30 text-yellow-400 text-xs font-bold uppercase tracking-wide">
@@ -843,6 +844,8 @@ export default function App() {
                      
                      {/* Social Proof Banner */}
                      <div className="mt-4 flex items-center justify-center gap-6 bg-blue-800/50 border border-blue-700 rounded-lg p-4">
+                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-16 w-auto" />
+                       <div className="h-8 w-px bg-blue-700"></div>
                        <div className="text-center">
                          <div className="text-yellow-400 flex justify-center gap-1 mb-1">
                            {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
