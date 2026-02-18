@@ -719,9 +719,13 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-2 md:hidden">
-              <a href="tel:7204454357" className="inline-flex items-center px-5 py-3 bg-purple-600 text-white text-base font-bold rounded-lg">
+              <a href="tel:7204454357" className="inline-flex items-center px-3 py-2 bg-purple-600 text-white text-sm font-bold rounded-lg">
                 <Phone className="h-4 w-4 mr-1" />
-                CALL/TEXT
+                CALL
+              </a>
+              <a href="sms:7204454357" className="inline-flex items-center px-3 py-2 bg-green-600 text-white text-sm font-bold rounded-lg">
+                <MessageSquare className="h-4 w-4 mr-1" />
+                TEXT
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -827,11 +831,19 @@ export default function App() {
                       </Button>
                       <Button
                         variant="urgent"
-                        className="h-16 text-lg font-bold px-12" 
+                        className="h-16 text-lg font-bold px-12"
                         href="tel:7204454357"
                       >
                         <Phone className="mr-2 h-5 w-5" />
-                        CALL OR TEXT (720) 445-4357
+                        CALL (720) 445-4357
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="h-16 text-lg font-bold px-12"
+                        href="sms:7204454357"
+                      >
+                        <MessageSquare className="mr-2 h-5 w-5" />
+                        TEXT (720) 445-4357
                       </Button>
                     </div>
                     
