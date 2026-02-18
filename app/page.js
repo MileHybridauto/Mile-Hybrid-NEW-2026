@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { 
-  Wrench, 
-  Zap, 
-  ShieldCheck, 
-  MapPin, 
-  Phone, 
-  Menu, 
+import React, { useState, useEffect, useRef } from 'react';
+import {
+  Wrench,
+  Zap,
+  ShieldCheck,
+  MapPin,
+  Phone,
+  Menu,
   X,
   Battery,
   Car,
@@ -34,6 +34,39 @@ import {
   Users,
   TrendingUp
 } from 'lucide-react';
+
+// --- CountUp Component ---
+const CountUp = ({ end, suffix = '', duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          const startTime = performance.now();
+          const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * end));
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [end, duration, hasAnimated]);
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+};
 
 // --- Enhanced Data Definitions ---
 
@@ -265,7 +298,7 @@ const Button = ({ children, variant = 'primary', className = '', href, ...props 
 };
 
 const FeatureCard = ({ icon: Icon, title, description, badge }) => (
-  <article className="group relative p-6 bg-blue-800 border border-blue-700 rounded-xl hover:border-green-500/50 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg h-full flex flex-col">
+  <article className="group relative p-6 backdrop-blur-sm bg-blue-800/60 border border-blue-700 rounded-xl hover:border-green-500/50 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] h-full flex flex-col">
     <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
       <Icon className="h-20 w-20 text-green-500" />
     </div>
@@ -767,14 +800,14 @@ export default function App() {
           {/* Hero Section - ENHANCED */}
           <main>
             <header className="relative bg-gradient-to-b from-blue-900 via-blue-900 to-blue-800 overflow-hidden">
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" style={{ backgroundAttachment: 'fixed' }}></div>
               
               <div className="max-w-7xl mx-auto relative z-10">
                 <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:gap-12">
                   <div className="lg:w-1/2 mb-10 lg:mb-0">
                     
                     <div className="flex flex-wrap items-center gap-3 mb-6 border-t border-blue-700 pt-6">
-                      <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-36 w-auto" />
+                      <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-36 w-auto carfax-glow" />
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
                         <Award className="h-5 w-5" />
                         Denver's Oldest Hybrid Shop
@@ -789,9 +822,9 @@ export default function App() {
                       </span>
                     </div>
 
-                    <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl mb-6 leading-tight">
+                    <h1 className="text-5xl tracking-tight font-extrabold text-white sm:text-6xl md:text-7xl mb-6 leading-tight">
                       Denver's Longest-Running <br />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-300 to-green-400">
+                      <span className="shimmer-text text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-200 to-green-400">
                         Hybrid & EV Specialists
                       </span>
                     </h1>
@@ -880,7 +913,7 @@ export default function App() {
                      
                      {/* Social Proof Banner */}
                      <div className="mt-4 flex items-center justify-center gap-6 bg-blue-800/50 border border-blue-700 rounded-lg p-4">
-                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-16 w-auto" />
+                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-16 w-auto carfax-glow" />
                        <div className="h-8 w-px bg-blue-700"></div>
                        <div className="text-center">
                          <div className="text-yellow-400 flex justify-center gap-1 mb-1">
@@ -900,7 +933,7 @@ export default function App() {
             </header>
 
             {/* Transparent Pricing Section */}
-            <section id="pricing" className="py-24 bg-blue-800 border-y border-blue-700">
+            <section id="pricing" className="py-32 bg-blue-800 border-y border-blue-700">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-xs font-bold uppercase tracking-wide mb-6">
@@ -914,15 +947,15 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                  <div className="bg-blue-900 border border-blue-700 rounded-2xl p-8 text-center">
+                  <div className="gradient-border bg-blue-900 rounded-2xl p-8 text-center">
                     <div className="text-4xl font-extrabold text-green-400 mb-2">30-50%</div>
                     <div className="text-blue-300 text-sm">Less Than Dealer Pricing</div>
                   </div>
-                  <div className="bg-blue-900 border border-blue-700 rounded-2xl p-8 text-center">
+                  <div className="gradient-border bg-blue-900 rounded-2xl p-8 text-center">
                     <div className="text-4xl font-extrabold text-green-400 mb-2">100%</div>
                     <div className="text-blue-300 text-sm">Upfront Written Estimates</div>
                   </div>
-                  <div className="bg-blue-900 border border-blue-700 rounded-2xl p-8 text-center">
+                  <div className="gradient-border bg-blue-900 rounded-2xl p-8 text-center">
                     <div className="text-4xl font-extrabold text-green-400 mb-2">$0</div>
                     <div className="text-blue-300 text-sm">Surprise Charges, Ever</div>
                   </div>
@@ -936,10 +969,10 @@ export default function App() {
             </section>
 
             {/* Why Choose Us Section - ENHANCED */}
-            <section id="why-us" className="py-20 bg-blue-900">
+            <section id="why-us" className="py-28 bg-blue-900">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Why Denver Has Trusted Us Since 2008</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Why Denver Has Trusted Us Since 2008</h2>
                   <p className="text-blue-400 max-w-2xl mx-auto">
                     As Denver's oldest and longest-running hybrid specialist, we've built our reputation on expertise, honesty, and exceptional service. When hybrids were new, we were already the experts.
                   </p>
@@ -972,10 +1005,10 @@ export default function App() {
             </section>
 
             {/* Expertise & Credentials Section - NEW FOR AI SEARCH */}
-            <section className="py-20 bg-blue-800 border-y border-blue-700">
+            <section className="py-28 bg-blue-800 border-y border-blue-700">
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Our Qualifications & Equipment</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Our Qualifications & Equipment</h2>
                   <p className="text-blue-400">Why Mile Hybrid is trusted with Colorado's most advanced vehicles</p>
                 </div>
 
@@ -1038,18 +1071,18 @@ export default function App() {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-gradient-to-br from-green-900/30 to-blue-900 border border-green-700/50 rounded-xl p-6 text-center">
-                    <div className="text-4xl font-bold text-green-400 mb-2">25,000+</div>
+                  <div className="gradient-border bg-gradient-to-br from-green-900/30 to-blue-900 rounded-xl p-6 text-center">
+                    <div className="text-4xl font-bold text-green-400 mb-2"><CountUp end={25000} suffix="+" /></div>
                     <div className="text-blue-300 font-medium mb-1">Hybrid Vehicles Serviced</div>
                     <div className="text-blue-500 text-sm">Since 2008</div>
                   </div>
-                  <div className="bg-gradient-to-br from-green-900/30 to-blue-900 border border-green-700/50 rounded-xl p-6 text-center">
-                    <div className="text-4xl font-bold text-green-400 mb-2">2,400+</div>
+                  <div className="gradient-border bg-gradient-to-br from-green-900/30 to-blue-900 rounded-xl p-6 text-center">
+                    <div className="text-4xl font-bold text-green-400 mb-2"><CountUp end={2400} suffix="+" /></div>
                     <div className="text-blue-300 font-medium mb-1">Hybrid Batteries Replaced</div>
                     <div className="text-blue-500 text-sm">More than any shop in Colorado</div>
                   </div>
-                  <div className="bg-gradient-to-br from-green-900/30 to-blue-900 border border-green-700/50 rounded-xl p-6 text-center">
-                    <div className="text-4xl font-bold text-green-400 mb-2">98%+</div>
+                  <div className="gradient-border bg-gradient-to-br from-green-900/30 to-blue-900 rounded-xl p-6 text-center">
+                    <div className="text-4xl font-bold text-green-400 mb-2"><CountUp end={98} suffix="%+" /></div>
                     <div className="text-blue-300 font-medium mb-1">First-Time Fix Rate</div>
                     <div className="text-blue-500 text-sm">Diagnosed correctly the first time</div>
                   </div>
@@ -1080,10 +1113,10 @@ export default function App() {
             </section>
 
             {/* How We Work Section - NEW FOR AI SEARCH */}
-            <section id="how-we-work" className="py-20 bg-blue-900 border-y border-blue-700">
+            <section id="how-we-work" className="py-28 bg-blue-900 border-y border-blue-700">
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Our Diagnostic & Repair Process</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Our Diagnostic & Repair Process</h2>
                   <p className="text-blue-400">Transparent, thorough, and designed to save you money</p>
                 </div>
 
@@ -1143,10 +1176,10 @@ export default function App() {
             </section>
 
             {/* Services Section - ENHANCED */}
-            <section id="services" className="py-20 bg-blue-800 border-y border-blue-700">
+            <section id="services" className="py-28 bg-blue-800 border-y border-blue-700">
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Complete Service Menu</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Complete Service Menu</h2>
                   <p className="text-blue-400 max-w-2xl mx-auto">
                     From routine oil changes to complex hybrid battery replacements, we do it all with factory-level precision at independent shop pricing.
                   </p>
@@ -1168,7 +1201,7 @@ export default function App() {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-blue-700">
                         {cat.items.map((item, itemIdx) => (
-                          <div key={itemIdx} className="bg-blue-900 p-6 hover:bg-blue-800 transition-colors">
+                          <div key={itemIdx} className="bg-blue-900 p-6 hover:bg-blue-800 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(34,197,94,0.15)]">
                             <div className="flex justify-between items-start mb-2">
                               <h4 className="text-lg font-bold text-white">{item.name}</h4>
                               {item.pricing && (
@@ -1205,7 +1238,7 @@ export default function App() {
             <section className="py-16 bg-blue-900 border-y border-blue-700">
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Quick Answers: What Denver Drivers Ask</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Quick Answers: What Denver Drivers Ask</h2>
                   <p className="text-blue-400">Common questions about hybrid and EV service</p>
                 </div>
 
@@ -1262,7 +1295,7 @@ export default function App() {
             <section className="py-20 bg-blue-900 border-b border-blue-700">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Common Questions: What's The Difference?</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Common Questions: What's The Difference?</h2>
                   <p className="text-blue-400">We answer the questions most hybrid owners ask</p>
                 </div>
 
@@ -1474,7 +1507,7 @@ export default function App() {
             </section>
 
             {/* Reviews Section - ENHANCED */}
-            <section className="py-20 bg-blue-900 border-b border-blue-700">
+            <section className="py-28 bg-blue-900 border-b border-blue-700">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                   <div className="inline-flex items-center gap-2 mb-4">
@@ -1483,7 +1516,7 @@ export default function App() {
                     </span>
                     <span className="text-white font-bold text-lg">4.9 out of 5 stars</span>
                   </div>
-                  <h2 className="text-3xl font-extrabold text-white mb-2">What Our Customers Say</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-2">What Our Customers Say</h2>
                   <p className="text-blue-400">Real reviews from real Denver drivers</p>
                 </div>
                 
@@ -1552,10 +1585,10 @@ export default function App() {
             </section>
 
             {/* FAQ Section - ENHANCED */}
-            <section id="faq" className="py-20 bg-blue-800 border-t border-blue-700" itemScope itemType="https://schema.org/FAQPage">
+            <section id="faq" className="py-28 bg-blue-800 border-t border-blue-700" itemScope itemType="https://schema.org/FAQPage">
               <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
                   <p className="text-blue-400">Everything you need to know about our service</p>
                 </div>
 
@@ -1582,11 +1615,11 @@ export default function App() {
             </section>
             
             {/* Location Section - ENHANCED */}
-            <section className="py-20 bg-blue-900 border-t border-blue-700">
+            <section className="py-28 bg-blue-900 border-t border-blue-700">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h2 className="text-3xl font-extrabold text-white mb-8">Visit Our Shop in Denver</h2>
+                    <h2 className="text-4xl font-extrabold text-white mb-8">Visit Our Shop in Denver</h2>
                     <div className="space-y-6">
                       <div className="flex items-start">
                         <MapPin className="h-6 w-6 text-green-500 mt-1 mr-4 shrink-0" />
@@ -1711,8 +1744,29 @@ export default function App() {
         </>
       )}
 
+      {/* Sticky Mobile CTA Bar */}
+      {currentView === 'home' && (
+        <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-blue-900/95 backdrop-blur-md border-t border-blue-700 p-3 flex gap-3">
+          <Button
+            className="flex-1 py-3 text-sm font-bold"
+            onClick={navigateToBooking}
+          >
+            <Calendar className="mr-2 h-4 w-4" />
+            BOOK NOW
+          </Button>
+          <Button
+            variant="urgent"
+            className="flex-1 py-3 text-sm font-bold"
+            href="tel:7204454357"
+          >
+            <Phone className="mr-2 h-4 w-4" />
+            CALL
+          </Button>
+        </div>
+      )}
+
       {/* Footer - ENHANCED */}
-      <footer className="bg-blue-950 text-blue-400 border-t border-blue-800">
+      <footer className={`bg-blue-950 text-blue-400 border-t border-blue-800 ${currentView === 'home' ? 'pb-20 md:pb-0' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
