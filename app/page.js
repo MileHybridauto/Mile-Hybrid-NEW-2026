@@ -835,7 +835,7 @@ export default function App() {
                         href="tel:7204454357"
                       >
                         <Phone className="mr-2 h-5 w-5" />
-                        CALL (720) 445-4357
+                        CALL
                       </Button>
                       <Button
                         variant="outline"
@@ -843,7 +843,7 @@ export default function App() {
                         href="sms:7204454357"
                       >
                         <MessageSquare className="mr-2 h-5 w-5" />
-                        TEXT (720) 445-4357
+                        TEXT
                       </Button>
                     </div>
                     
