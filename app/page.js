@@ -685,7 +685,7 @@ export default function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-blue-900/95 backdrop-blur-md sticky top-8 z-40 border-b border-blue-800">
+      <nav className="bg-blue-300 backdrop-blur-md sticky top-8 z-40 border-b border-blue-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <div className="flex items-center">
