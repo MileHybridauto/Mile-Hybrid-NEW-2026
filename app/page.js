@@ -839,7 +839,7 @@ export default function App() {
                       </Button>
                       <Button
                         variant="outline"
-                        className="h-16 text-lg font-bold px-12"
+                        className="h-16 text-lg font-bold px-12 bg-white text-blue-900 border-white hover:bg-blue-100"
                         href="sms:7204454357"
                       >
                         <MessageSquare className="mr-2 h-5 w-5" />
