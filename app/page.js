@@ -820,14 +820,14 @@ export default function App() {
 
                     <div className="mt-10 flex flex-col sm:flex-row gap-4">
                       <Button 
-                        className="h-14 text-lg font-bold px-8 shadow-2xl hover:scale-105 transition-transform" 
+                        className="h-16 text-lg font-bold px-12 shadow-2xl hover:scale-105 transition-transform"
                         onClick={navigateToBooking}
                       >
                         SCHEDULE ONLINE →
                       </Button>
-                      <Button 
+                      <Button
                         variant="urgent"
-                        className="h-14 text-lg font-bold px-6" 
+                        className="h-16 text-lg font-bold px-12" 
                         href="tel:7204454357"
                       >
                         <Phone className="mr-2 h-5 w-5" />
