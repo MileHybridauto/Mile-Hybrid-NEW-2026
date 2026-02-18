@@ -68,6 +68,31 @@ const CountUp = ({ end, suffix = '', duration = 2000 }) => {
   return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
 };
 
+// --- FadeInSection Component ---
+const FadeInSection = ({ children, className = '' }) => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`fade-in-section ${isVisible ? 'is-visible' : ''} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 // --- Enhanced Data Definitions ---
 
 const detailedServiceCategories = [
@@ -801,6 +826,9 @@ export default function App() {
           <main>
             <header className="relative bg-gradient-to-b from-blue-900 via-blue-900 to-blue-800 overflow-hidden">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" style={{ backgroundAttachment: 'fixed' }}></div>
+              {/* Floating decorative orbs */}
+              <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/5 rounded-full blur-3xl floating-orb pointer-events-none"></div>
+              <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl floating-orb-slow pointer-events-none"></div>
               
               <div className="max-w-7xl mx-auto relative z-10">
                 <div className="pt-8 pb-24 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:gap-12">
@@ -912,7 +940,7 @@ export default function App() {
                      </div>
                      
                      {/* Social Proof Banner */}
-                     <div className="mt-4 flex items-center justify-center gap-6 bg-blue-800/50 border border-blue-700 rounded-lg p-4">
+                     <div className="mt-4 flex items-center justify-center gap-6 gradient-border bg-blue-800/70 backdrop-blur-sm rounded-xl p-6">
                        <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center" className="h-16 w-auto carfax-glow" />
                        <div className="h-8 w-px bg-blue-700"></div>
                        <div className="text-center">
@@ -934,13 +962,14 @@ export default function App() {
 
             {/* Transparent Pricing Section */}
             <section id="pricing" className="py-32 bg-blue-800 border-y border-blue-700">
+              <FadeInSection>
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-xs font-bold uppercase tracking-wide mb-6">
                     <DollarSign className="h-4 w-4" />
                     Transparent Pricing
                   </div>
-                  <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">Save 30-50% vs Dealer Pricing</h2>
+                  <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 heading-glow">Save 30-50% vs Dealer Pricing</h2>
                   <p className="text-blue-300 max-w-3xl mx-auto text-lg leading-relaxed mb-8">
                     Same OEM parts, same quality standards, significantly lower prices. No corporate overhead means real savings for you.
                   </p>
@@ -966,13 +995,15 @@ export default function App() {
                   <Button onClick={navigateToBooking} className="text-lg px-10 py-4 font-bold">Get Your Free Quote</Button>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Why Choose Us Section - ENHANCED */}
             <section id="why-us" className="py-28 bg-blue-900">
+              <FadeInSection>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Why Denver Has Trusted Us Since 2008</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Why Denver Has Trusted Us Since 2008</h2>
                   <p className="text-blue-400 max-w-2xl mx-auto">
                     As Denver's oldest and longest-running hybrid specialist, we've built our reputation on expertise, honesty, and exceptional service. When hybrids were new, we were already the experts.
                   </p>
@@ -1002,13 +1033,15 @@ export default function App() {
                   </div>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Expertise & Credentials Section - NEW FOR AI SEARCH */}
             <section className="py-28 bg-blue-800 border-y border-blue-700">
+              <FadeInSection>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Our Qualifications & Equipment</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Our Qualifications & Equipment</h2>
                   <p className="text-blue-400">Why Mile Hybrid is trusted with Colorado's most advanced vehicles</p>
                 </div>
 
@@ -1110,20 +1143,22 @@ export default function App() {
                   </div>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* How We Work Section - NEW FOR AI SEARCH */}
             <section id="how-we-work" className="py-28 bg-blue-900 border-y border-blue-700">
+              <FadeInSection>
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Our Diagnostic & Repair Process</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Our Diagnostic & Repair Process</h2>
                   <p className="text-blue-400">Transparent, thorough, and designed to save you money</p>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
+                  <div className="timeline-step bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-[0_0_15px_rgba(34,197,94,0.4)]">1</div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-2">Free Initial Consultation (15 minutes)</h3>
                         <p className="text-blue-300 mb-2">When you call or book online, we discuss your symptoms over the phone. About 30% of the time, we can identify the issue and give you a ballpark estimate before you even come in. This saves you the diagnostic fee if it's something simple.</p>
@@ -1132,9 +1167,9 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
+                  <div className="timeline-step bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-[0_0_15px_rgba(34,197,94,0.4)]">2</div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-2">Comprehensive Diagnostic</h3>
                         <p className="text-blue-300 mb-2">For hybrid systems, we use Toyota Techstream (dealer-level software) to read all control modules, not just the engine. We test hybrid battery cell voltages individually, check inverter coolant flow, scan for isolation faults, and road test with live data monitoring. You get a detailed written report with photos.</p>
@@ -1143,9 +1178,9 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
+                  <div className="timeline-step bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-[0_0_15px_rgba(34,197,94,0.4)]">3</div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-2">Written Estimate With Options</h3>
                         <p className="text-blue-300 mb-2">We provide a detailed written estimate explaining exactly what's wrong and why. For expensive repairs like hybrid batteries, we always present multiple options: new OEM, certified reconditioned, or individual module repair. You decide what makes sense for your budget and how long you plan to keep the car.</p>
@@ -1154,9 +1189,9 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
+                  <div className="timeline-step bg-blue-800 border-l-4 border-green-500 rounded-r-xl p-6">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                      <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-[0_0_15px_rgba(34,197,94,0.4)]">4</div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-2">Repair With Lifetime Labor Warranty</h3>
                         <p className="text-blue-300 mb-2">Once you approve the estimate, we order OEM or OE-quality parts (typically arrive next day) and schedule your repair. All work is performed by ASE-certified technicians with hybrid-specific training. We road test every vehicle after repairs and provide a final inspection report. Every repair includes our lifetime labor warranty - if our workmanship fails, we fix it free forever.</p>
@@ -1173,13 +1208,15 @@ export default function App() {
                   </p>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Services Section - ENHANCED */}
             <section id="services" className="py-28 bg-blue-800 border-y border-blue-700">
+              <FadeInSection>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Complete Service Menu</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Complete Service Menu</h2>
                   <p className="text-blue-400 max-w-2xl mx-auto">
                     From routine oil changes to complex hybrid battery replacements, we do it all with factory-level precision at independent shop pricing.
                   </p>
@@ -1232,70 +1269,74 @@ export default function App() {
                   <Button onClick={navigateToBooking}>Request Custom Quote</Button>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Common Search Queries Section - FOR AI SEARCH OPTIMIZATION */}
             <section className="py-16 bg-blue-900 border-y border-blue-700">
+              <FadeInSection>
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Quick Answers: What Denver Drivers Ask</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Quick Answers: What Denver Drivers Ask</h2>
                   <p className="text-blue-400">Common questions about hybrid and EV service</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-green-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">How much is a Prius battery?</h3>
                     <p className="text-blue-300 text-sm">We offer new OEM and certified reconditioned options. Save 30-50% vs dealer pricing on the same battery. Call us for a free quote.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-blue-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">P0A80 code - bad battery?</h3>
                     <p className="text-blue-300 text-sm">Not always! 60% of P0A80 codes we see are NOT the battery - could be a 12V battery, cooling fan, or connections. Proper diagnosis first saves you from unnecessary repairs.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-green-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">How long do hybrid batteries last?</h3>
                     <p className="text-blue-300 text-sm">Toyota/Lexus: 8-10 years or 150k-200k miles typically. With proper maintenance (keep battery cooling system clean), some reach 300k+ miles.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-blue-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Tesla squeaking noise?</h3>
                     <p className="text-blue-300 text-sm">Model 3/Y control arm issue. Common problem - worn bushings cause squeaking when turning. We fix it for significantly less than Tesla Service Center.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-green-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Can I drive with red triangle?</h3>
                     <p className="text-blue-300 text-sm">Usually yes, but get it checked within 48 hours. Continuing to drive risks turning a simple 12V battery problem into a much more expensive hybrid battery failure.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-blue-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Hybrid repair near me Denver?</h3>
                     <p className="text-blue-300 text-sm">Mile Hybrid at 5142 E 39th Ave (near I-70). Denver's oldest hybrid shop since 2008. ASE certified, lifetime warranty, loaner cars available.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-green-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Hybrid oil change different?</h3>
                     <p className="text-blue-300 text-sm">Yes - we also inspect hybrid-specific systems: battery cooling fans, inverter coolant, HV isolation. Takes 45 min vs 20 min for a regular car. Call for current pricing.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-blue-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Gen 3 Prius head gasket?</h3>
                     <p className="text-blue-300 text-sm">The "death rattle" - defective piston rings. Options: head gasket replacement or complete engine swap. Engine swap is the permanent fix. Contact us for a quote.</p>
                   </div>
 
-                  <div className="bg-blue-800 border border-blue-700 rounded-lg p-5 hover:border-green-500/50 transition-colors">
+                  <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-green-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Do I need Toyota dealership?</h3>
                     <p className="text-blue-300 text-sm">No - federal law (Magnuson-Moss Act) protects your warranty. We use same OEM parts and Techstream software as dealer. Save 30-50%.</p>
                   </div>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Comparison Section - NEW FOR AI SEARCH */}
             <section className="py-20 bg-blue-900 border-b border-blue-700">
+              <FadeInSection>
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Common Questions: What's The Difference?</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Common Questions: What's The Difference?</h2>
                   <p className="text-blue-400">We answer the questions most hybrid owners ask</p>
                 </div>
 
@@ -1371,57 +1412,57 @@ export default function App() {
                       <div className="overflow-x-auto">
                         <table className="w-full text-left">
                           <thead>
-                            <tr className="border-b border-blue-700">
+                            <tr className="border-b-2 border-blue-600">
                               <th className="pb-4 text-blue-300 font-medium">Factor</th>
                               <th className="pb-4 text-blue-300 font-medium">Toyota Dealership</th>
                               <th className="pb-4 text-green-400 font-bold">Mile Hybrid Automotive</th>
                             </tr>
                           </thead>
                           <tbody className="text-blue-300">
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Diagnostic Software</td>
                               <td className="py-4">Toyota Techstream (OEM)</td>
-                              <td className="py-4 text-green-400">Toyota Techstream (same OEM software)</td>
+                              <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />Same OEM software</td>
                             </tr>
                             <tr className="border-b border-blue-700/50">
                               <td className="py-4 font-medium">Technician Training</td>
                               <td className="py-4">Factory-trained</td>
-                              <td className="py-4 text-green-400">Factory-trained + ASE Certified + 17 years hybrid focus</td>
+                              <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />Factory-trained + ASE + 17 years hybrid focus</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Parts Used</td>
                               <td className="py-4">100% OEM Toyota/Lexus</td>
-                              <td className="py-4 text-green-400">OEM preferred, OE-quality alternatives available (you choose)</td>
+                              <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />OEM preferred, OE-quality alternatives (you choose)</td>
                             </tr>
                             <tr className="border-b border-blue-700/50">
                               <td className="py-4 font-medium">Hybrid Battery Cost</td>
                               <td className="py-4">Full dealer markup</td>
-                              <td className="py-4 text-green-400 font-bold">Save 30-50% vs dealer</td>
+                              <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />Save 30-50% vs dealer</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Diagnostic Fee</td>
                               <td className="py-4">Higher fee, never waived</td>
-                              <td className="py-4 text-green-400 font-bold">Lower fee, competitive pricing</td>
+                              <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />Lower fee, competitive pricing</td>
                             </tr>
                             <tr className="border-b border-blue-700/50">
                               <td className="py-4 font-medium">Wait Time</td>
                               <td className="py-4">1-2 weeks for appointment</td>
-                              <td className="py-4 text-green-400">3-5 days (often same-day for urgent)</td>
+                              <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />3-5 days (often same-day for urgent)</td>
                             </tr>
-                            <tr className="border-b border-blue-700/50">
+                            <tr className="border-b border-blue-700/50 bg-blue-900/30">
                               <td className="py-4 font-medium">Loaner Vehicle</td>
                               <td className="py-4">Rental fee charged</td>
-                              <td className="py-4 text-green-400 font-bold">Available for qualifying repairs</td>
+                              <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />Available for qualifying repairs</td>
                             </tr>
                             <tr className="border-b border-blue-700/50">
                               <td className="py-4 font-medium">Labor Warranty</td>
                               <td className="py-4">12 months / 12,000 miles</td>
-                              <td className="py-4 text-green-400 font-bold">LIFETIME (as long as you own the car)</td>
+                              <td className="py-4 text-green-400 font-bold"><CheckCircle className="inline h-4 w-4 mr-1" />LIFETIME (as long as you own the car)</td>
                             </tr>
-                            <tr>
+                            <tr className="bg-blue-900/30">
                               <td className="py-4 font-medium">Who You Talk To</td>
                               <td className="py-4">Service advisor (not a technician)</td>
-                              <td className="py-4 text-green-400">Actual technician who worked on your car</td>
+                              <td className="py-4 text-green-400"><CheckCircle className="inline h-4 w-4 mr-1" />Actual technician who worked on your car</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1504,10 +1545,12 @@ export default function App() {
                   </div>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Reviews Section - ENHANCED */}
             <section className="py-28 bg-blue-900 border-b border-blue-700">
+              <FadeInSection>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                   <div className="inline-flex items-center gap-2 mb-4">
@@ -1516,13 +1559,13 @@ export default function App() {
                     </span>
                     <span className="text-white font-bold text-lg">4.9 out of 5 stars</span>
                   </div>
-                  <h2 className="text-4xl font-extrabold text-white mb-2">What Our Customers Say</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-2 heading-glow">What Our Customers Say</h2>
                   <p className="text-blue-400">Real reviews from real Denver drivers</p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="bg-blue-800 p-8 rounded-2xl border border-blue-700 relative">
-                    <div className="absolute -top-4 left-8 bg-green-600 p-2 rounded-lg">
+                  <div className="gradient-border backdrop-blur-sm bg-blue-800/60 p-8 rounded-2xl relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] stagger-child">
+                    <div className="absolute -top-4 left-8 bg-green-600 p-2 rounded-lg shadow-[0_0_12px_rgba(34,197,94,0.4)]">
                       <Star className="w-6 h-6 text-white fill-current" />
                     </div>
                     <div className="flex gap-1 text-yellow-400 mb-4 pt-2">
@@ -1537,8 +1580,8 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-800 p-8 rounded-2xl border border-blue-700 relative">
-                    <div className="absolute -top-4 left-8 bg-green-600 p-2 rounded-lg">
+                  <div className="gradient-border backdrop-blur-sm bg-blue-800/60 p-8 rounded-2xl relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] stagger-child">
+                    <div className="absolute -top-4 left-8 bg-green-600 p-2 rounded-lg shadow-[0_0_12px_rgba(34,197,94,0.4)]">
                       <Star className="w-6 h-6 text-white fill-current" />
                     </div>
                     <div className="flex gap-1 text-yellow-400 mb-4 pt-2">
@@ -1553,8 +1596,8 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-800 p-8 rounded-2xl border border-blue-700 relative">
-                    <div className="absolute -top-4 left-8 bg-green-600 p-2 rounded-lg">
+                  <div className="gradient-border backdrop-blur-sm bg-blue-800/60 p-8 rounded-2xl relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] stagger-child">
+                    <div className="absolute -top-4 left-8 bg-green-600 p-2 rounded-lg shadow-[0_0_12px_rgba(34,197,94,0.4)]">
                       <Star className="w-6 h-6 text-white fill-current" />
                     </div>
                     <div className="flex gap-1 text-yellow-400 mb-4 pt-2">
@@ -1582,13 +1625,15 @@ export default function App() {
                   </Button>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* FAQ Section - ENHANCED */}
             <section id="faq" className="py-28 bg-blue-800 border-t border-blue-700" itemScope itemType="https://schema.org/FAQPage">
+              <FadeInSection>
               <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
+                  <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Frequently Asked Questions</h2>
                   <p className="text-blue-400">Everything you need to know about our service</p>
                 </div>
 
@@ -1612,14 +1657,16 @@ export default function App() {
                   </Button>
                 </div>
               </div>
+              </FadeInSection>
             </section>
-            
+
             {/* Location Section - ENHANCED */}
             <section className="py-28 bg-blue-900 border-t border-blue-700">
+              <FadeInSection>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h2 className="text-4xl font-extrabold text-white mb-8">Visit Our Shop in Denver</h2>
+                    <h2 className="text-4xl font-extrabold text-white mb-8 heading-glow">Visit Our Shop in Denver</h2>
                     <div className="space-y-6">
                       <div className="flex items-start">
                         <MapPin className="h-6 w-6 text-green-500 mt-1 mr-4 shrink-0" />
@@ -1689,6 +1736,7 @@ export default function App() {
                   </div>
                 </div>
               </div>
+              </FadeInSection>
             </section>
 
             {/* Final CTA Section - ENHANCED */}
@@ -1766,7 +1814,10 @@ export default function App() {
       )}
 
       {/* Footer - ENHANCED */}
-      <footer className={`bg-blue-950 text-blue-400 border-t border-blue-800 ${currentView === 'home' ? 'pb-20 md:pb-0' : ''}`}>
+      <footer className={`bg-blue-950 text-blue-400 relative ${currentView === 'home' ? 'pb-20 md:pb-0' : ''}`}>
+        {/* Green accent gradient line */}
+        <div className="h-px bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent mt-px"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
