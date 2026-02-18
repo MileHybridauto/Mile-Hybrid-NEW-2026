@@ -563,7 +563,7 @@ const BookingPage = ({ onBack }) => {
                 {isSubmitting ? 'SENDING...' : 'REQUEST APPOINTMENT →'}
               </Button>
               <p className="text-center text-blue-500 text-sm mt-4">
-                💳 No payment required now • ⏱️ Confirmed within 2 hours • 🔒 Your info is secure
+                💳 No payment required now • 🔒 Your info is secure
               </p>
             </div>
           </form>
