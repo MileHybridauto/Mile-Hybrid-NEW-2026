@@ -364,12 +364,12 @@ const BookingPage = ({ onBack }) => {
           <strong>Thank you, {formData.name}!</strong>
         </p>
         <p className="text-blue-400 max-w-md mb-8">
-          We'll review your {formData.year} {formData.make} {formData.model} and call you at <strong>{formData.phone}</strong> within 2 hours to confirm your appointment time.
+          We've received your request for your {formData.year} {formData.make} {formData.model}. Our team will reach out to you as soon as possible to confirm your appointment.
         </p>
         {formData.urgency === 'urgent' && (
           <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-4 mb-6 max-w-md">
             <p className="text-red-400 text-sm">
-              <strong>⚡ URGENT REQUEST NOTED:</strong> We'll prioritize your callback and check for same-day availability.
+              <strong>⚡ URGENT REQUEST NOTED:</strong> We'll do our best to prioritize your request.
             </p>
           </div>
         )}
@@ -393,7 +393,7 @@ const BookingPage = ({ onBack }) => {
           <div className="bg-gradient-to-r from-green-900/30 to-blue-800 p-8 border-b border-blue-700">
             <h1 className="text-3xl font-extrabold text-white">Schedule Your Service</h1>
             <p className="mt-2 text-blue-300">
-              Most appointments confirmed within 2 hours. Emergency service often available same-day.
+              Fill out the form below and our team will get back to you as soon as possible.
             </p>
           </div>
           
