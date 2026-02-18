@@ -680,7 +680,7 @@ export default function App() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
       {/* Sticky Top Banner */}
-      <div className="bg-red-600 text-white py-2 text-center text-sm font-medium sticky top-0 z-50">
+      <div className="bg-purple-600 text-white py-2 text-center text-sm font-medium sticky top-0 z-50">
         ⚡ DENVER'S OLDEST HYBRID SHOP - SERVING YOU SINCE 2008 • Same-Day Emergency Service: <a href="tel:7204454357" className="underline font-bold">(720) 445-4357</a>
       </div>
 
