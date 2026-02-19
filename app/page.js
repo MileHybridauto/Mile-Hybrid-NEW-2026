@@ -942,7 +942,7 @@ export default function App() {
                                  <p className="text-green-300 text-sm">Denver's oldest hybrid shop</p>
                                </div>
                                <div className="text-right">
-                                 <div className="text-3xl font-bold text-white"><CountUp end={25000} suffix="+" /></div>
+                                 <div className="text-3xl font-bold text-white">25,000+</div>
                                  <div className="text-xs text-blue-300">Cars Serviced</div>
                                </div>
                              </div>
@@ -1005,8 +1005,10 @@ export default function App() {
                 </div>
 
                 <div className="text-center">
-                  <p className="text-blue-400 mb-6">Get a detailed written estimate before any work begins.</p>
-                  <Button onClick={navigateToBooking} className="text-lg px-10 py-4 font-bold">Get Your Free Quote</Button>
+                  <p className="text-blue-400 mb-6">Talk to a hybrid specialist — no obligation, no runaround.</p>
+                  <Button variant="urgent" className="text-lg px-10 py-4 font-bold" href="tel:7204454357">
+                    <Phone className="mr-2 h-5 w-5" /> CALL (720) 445-4357
+                  </Button>
                 </div>
               </div>
               </FadeInSection>
