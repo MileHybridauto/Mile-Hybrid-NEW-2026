@@ -843,7 +843,7 @@ export default function App() {
                     </div>
 
                     <h1 className="text-5xl tracking-tight font-extrabold text-white sm:text-6xl md:text-7xl mb-6 leading-tight">
-                      Denver's Longest-Running <br />
+                      Denver's First <br />
                       <span className="shimmer-text text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-200 to-green-400">
                         Hybrid & EV Specialists
                       </span>
