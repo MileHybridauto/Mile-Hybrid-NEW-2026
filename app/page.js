@@ -1756,9 +1756,10 @@ export default function App() {
             {/* Final CTA Section - ENHANCED */}
             <section className="relative py-24 overflow-hidden">
               <div className="absolute inset-0">
-                <img 
-                  src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=2000" 
-                  alt="Auto repair" 
+                <img
+                  src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=2000"
+                  alt="Hybrid and electric vehicle repair shop technician working on engine diagnostics in Denver Colorado"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-blue-900/95"></div>

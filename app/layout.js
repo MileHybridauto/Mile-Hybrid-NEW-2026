@@ -82,6 +82,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://www.milehybridauto.com" />
+        <link rel="preload" as="image" href="/hero-shop.jpg" />
         {/* AutoRepair Business Schema */}
         <script
           type="application/ld+json"
@@ -112,6 +113,19 @@ export default function RootLayout({ children }) {
               "email": "info@milehybridauto.com",
               "url": "https://www.milehybridauto.com",
               "priceRange": "$$",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+17204454357",
+                "contactType": "customer service",
+                "areaServed": "US-CO",
+                "availableLanguage": ["English", "Spanish"],
+                "hoursAvailable": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "07:30",
+                  "closes": "17:30"
+                }
+              },
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
@@ -257,6 +271,58 @@ export default function RootLayout({ children }) {
                 "@type": "AutoRepair",
                 "name": "Mile Hybrid Automotive"
               }
+            })
+          }}
+        />
+        {/* FAQ Schema for rich snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How much does a hybrid battery replacement cost in Denver?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Mile Hybrid Automotive offers hybrid battery replacement at 30-50% less than dealership pricing. We offer new OEM batteries with 3-year warranty, certified reconditioned batteries with 1-year warranty, and individual module replacement when possible. Call (720) 445-4357 for a free quote."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What does the Prius red triangle warning light mean?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The red triangle (Master Warning Light) indicates a hybrid system issue. You can usually still drive short-term, but get it diagnosed within 48 hours. About 60% of cases are caused by 12V battery, cooling fan, or connection issues - not the hybrid battery itself. Mile Hybrid can diagnose the exact cause."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Will using an independent hybrid shop void my warranty?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Under the Magnuson-Moss Warranty Act, manufacturers cannot void your warranty for using an independent shop. Mile Hybrid uses OEM parts and follows factory procedures. We've been servicing warranty-covered vehicles since 2008 with zero warranty issues."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What certifications do Mile Hybrid technicians have?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All technicians are ASE Certified (Engine Repair, Electrical Systems, Hybrid/EV L3), High-Voltage Safety Certified (300V+ systems, recertified annually), and have Toyota factory Techstream training. Senior techs have 15+ years of hybrid-specific experience."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long does a hybrid battery replacement take?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The actual replacement takes 3-4 hours for most Toyota and Lexus hybrids. With a reconditioned battery in stock, we can often complete same-day. New OEM batteries typically need 1-2 business days to order. Free loaner vehicles are available during the repair."
+                  }
+                }
+              ]
             })
           }}
         />

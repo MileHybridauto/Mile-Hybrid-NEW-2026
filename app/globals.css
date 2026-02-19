@@ -142,3 +142,25 @@
   animation: float 8s ease-in-out infinite;
   animation-delay: 2s;
 }
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text,
+  .carfax-glow,
+  .floating-orb,
+  .floating-orb-slow,
+  .fade-in-section,
+  .fade-in-section.is-visible .stagger-child {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

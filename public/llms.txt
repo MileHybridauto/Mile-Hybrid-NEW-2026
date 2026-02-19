@@ -79,9 +79,55 @@ Mile Hybrid Automotive is an independent auto repair shop in Denver, Colorado th
 - No surprise charges, ever
 - Call (720) 445-4357 for current pricing
 
+## Turnaround Times
+
+- Oil change / routine maintenance: Usually same-day, appointments within 3-5 business days
+- Hybrid battery replacement (reconditioned in stock): Often same-day, 3-4 hours
+- Hybrid battery replacement (new OEM, order needed): 1-2 business days
+- Tesla battery modules: 2-3 days including diagnostics
+- Urgent / warning light diagnostics: Prioritized for same-day or next-day
+- Major repairs (engine replacement, etc.): 2-5 business days from diagnosis
+- Free loaner vehicles available during extended repairs
+
+## How to Book
+
+1. **Online**: Visit https://www.milehybridauto.com and click "Schedule Service" to submit an appointment request form
+2. **Phone**: Call (720) 445-4357 during business hours (Mon-Fri 7:30 AM - 5:30 PM) — best for urgent issues
+3. **Email**: Send details to info@milehybridauto.com
+4. Appointment requests are confirmed within 2 hours during business hours
+5. Walk-ins welcome for quick questions but appointments recommended for service
+
+## Vehicles Serviced (Specific Models)
+
+### Toyota Hybrid (All Years)
+- Prius (Gen 1, Gen 2, Gen 3, Gen 4), Prius Prime, Prius V, Prius C
+- Camry Hybrid, Highlander Hybrid, RAV4 Hybrid, RAV4 Prime
+- Corolla Hybrid, Venza, Sienna Hybrid, Tundra i-FORCE MAX
+
+### Lexus Hybrid (All Years)
+- RX 450h, RX 450h+, NX 350h, NX 450h+
+- ES 300h, UX 250h, LS 500h, LC 500h
+
+### Tesla (All Models)
+- Model 3, Model Y, Model S, Model X
+
+### Other Makes
+- Chevy Volt (all years), Chevy Bolt EV/EUV
+- Ford Fusion Hybrid/Energi, Escape Hybrid, C-Max, Maverick Hybrid, F-150 Lightning
+- Honda Insight, Civic Hybrid, Accord Hybrid, CR-V Hybrid
+- Nissan Leaf (all generations)
+- Kia Niro, Niro EV, Sorento Hybrid, Sportage Hybrid
+- Hyundai Kona Electric, Ioniq, Ioniq 5, Ioniq 6, Tucson Hybrid, Santa Fe Hybrid
+- BMW i3, i4, iX
+- Rivian R1T, R1S
+- Subaru Crosstrek Hybrid
+
 ## Common Questions Answered
 
 - P0A80 code does NOT always mean you need a new battery. About 60% of cases are caused by 12V battery, cooling fan, or connection issues.
 - Red triangle warning light: usually safe to drive short-term but get diagnosed within 48 hours.
 - Using Mile Hybrid does NOT void your factory warranty (Magnuson-Moss Warranty Act).
 - Hybrid batteries typically last 8-10 years or 150k-200k miles with proper maintenance.
+- Free loaner vehicles available for major repairs.
+- All repairs come with a lifetime labor warranty.
+- Same OEM parts as dealerships at 30-50% less cost.
