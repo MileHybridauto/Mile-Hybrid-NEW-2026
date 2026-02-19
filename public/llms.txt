@@ -1,6 +1,6 @@
 # Mile Hybrid Automotive
 
-> Denver's oldest and longest-running hybrid and EV repair specialist, operating continuously since 2008.
+> Denver's first hybrid and EV repair specialist, operating continuously since 2008.
 
 ## Business Summary
 
@@ -17,7 +17,7 @@ Mile Hybrid Automotive is an independent auto repair shop in Denver, Colorado th
 
 ## Key Facts
 
-- Founded: 2008 (Denver's oldest hybrid shop)
+- Founded: 2008 (Denver's first hybrid shop)
 - Vehicles serviced: 25,000+
 - Hybrid batteries replaced: 2,400+
 - First-time fix rate: 98%+

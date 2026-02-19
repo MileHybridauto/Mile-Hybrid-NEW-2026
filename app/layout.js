@@ -3,10 +3,10 @@ import './globals.css'
 export const metadata = {
   metadataBase: new URL('https://www.milehybridauto.com'),
   title: {
-    default: "Mile Hybrid Automotive | Denver's Oldest Hybrid & EV Shop Since 2008",
+    default: "Mile Hybrid Automotive | Denver's First Hybrid & EV Shop Since 2008",
     template: "%s | Mile Hybrid Automotive",
   },
-  description: "Denver's oldest hybrid & EV specialist since 2008. Save 30-50% vs dealer on Toyota, Lexus, Tesla repair. ASE certified, lifetime labor warranty, loaner cars. 4.9★ rating, 25,000+ vehicles serviced. Call (720) 445-4357.",
+  description: "Denver's first hybrid & EV specialist since 2008. Save 30-50% vs dealer on Toyota, Lexus, Tesla repair. ASE certified, lifetime labor warranty, loaner cars. 4.9★ rating, 25,000+ vehicles serviced. Call (720) 445-4357.",
   keywords: [
     "hybrid repair denver",
     "prius battery replacement denver",
@@ -33,7 +33,7 @@ export const metadata = {
     canonical: 'https://www.milehybridauto.com',
   },
   openGraph: {
-    title: "Mile Hybrid Automotive | Denver's Oldest Hybrid Shop Since 2008",
+    title: "Mile Hybrid Automotive | Denver's First Hybrid Shop Since 2008",
     description: "Save 30-50% on hybrid & EV repair. ASE certified, lifetime warranty, free loaners. 25,000+ vehicles serviced. Denver's most trusted hybrid specialist.",
     url: "https://www.milehybridauto.com",
     siteName: "Mile Hybrid Automotive",
@@ -44,13 +44,13 @@ export const metadata = {
         url: '/hero-shop.jpg',
         width: 1200,
         height: 630,
-        alt: "Mile Hybrid Automotive - Denver's Oldest Hybrid & EV Repair Shop",
+        alt: "Mile Hybrid Automotive - Denver's First Hybrid & EV Repair Shop",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Mile Hybrid Automotive | Denver's Oldest Hybrid Shop",
+    title: "Mile Hybrid Automotive | Denver's First Hybrid Shop",
     description: "Save 30-50% on hybrid & EV repair. ASE certified, lifetime warranty. 4.9★ rating. Call (720) 445-4357.",
     images: ['/hero-shop.jpg'],
   },
@@ -92,9 +92,9 @@ export default function RootLayout({ children }) {
               "@type": "AutoRepair",
               "name": "Mile Hybrid Automotive",
               "image": "/hero-shop.jpg",
-              "description": "Denver's oldest and longest-running hybrid and EV specialist since 2008. Expert Toyota, Lexus, Tesla service at 30-50% less than dealer prices.",
+              "description": "Denver's first hybrid and EV repair specialist, operating continuously since 2008. Expert Toyota, Lexus, Tesla service at 30-50% less than dealer prices.",
               "foundingDate": "2008",
-              "slogan": "Denver's Oldest Hybrid Shop - Pioneering Since 2008",
+              "slogan": "Denver's First Hybrid Shop - Pioneering Since 2008",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "5142 E 39th Ave",
@@ -266,7 +266,7 @@ export default function RootLayout({ children }) {
               "@type": "WebSite",
               "name": "Mile Hybrid Automotive",
               "url": "https://www.milehybridauto.com",
-              "description": "Denver's oldest hybrid and EV repair specialist since 2008.",
+              "description": "Denver's first hybrid and EV repair specialist since 2008.",
               "publisher": {
                 "@type": "AutoRepair",
                 "name": "Mile Hybrid Automotive"

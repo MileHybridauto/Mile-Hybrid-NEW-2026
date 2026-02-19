@@ -149,7 +149,7 @@ const detailedServiceCategories = [
 const whyChooseUs = [
   {
     icon: Award,
-    title: "Denver's Oldest Hybrid Shop",
+    title: "Denver's First Hybrid Shop",
     description: "We opened our doors in 2008 when hybrids were new. 17+ years of specialization means we've seen and fixed it all. We literally wrote the book on hybrid repair in Colorado."
   },
   {
@@ -184,9 +184,9 @@ const schemaData = {
   "@type": "AutoRepair",
   "name": "Mile Hybrid Automotive",
   "image": "https://placehold.co/400x150/white/10b981?text=Mile+Hybrid+Auto", 
-  "description": "Denver's oldest and longest-running hybrid and EV specialist since 2008. Expert Toyota, Lexus, Tesla service at 30-50% less than dealer prices. ASE certified, lifetime labor warranty.",
+  "description": "Denver's first hybrid and EV specialist since 2008. Expert Toyota, Lexus, Tesla service at 30-50% less than dealer prices. ASE certified, lifetime labor warranty.",
   "foundingDate": "2008",
-  "slogan": "Denver's Oldest Hybrid Shop - Pioneering Since 2008",
+  "slogan": "Denver's First Hybrid Shop - Pioneering Since 2008",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "5142 E 39th Ave", 
@@ -625,7 +625,7 @@ const BookingPage = ({ onBack }) => {
         <div className="mt-8 grid grid-cols-3 gap-4 text-center">
           <div className="bg-blue-800/50 border border-blue-700 rounded-lg p-4">
             <div className="text-2xl font-bold text-green-400">2008</div>
-            <div className="text-xs text-blue-400">Oldest Hybrid Shop</div>
+            <div className="text-xs text-blue-400">First Hybrid Shop</div>
           </div>
           <div className="bg-blue-800/50 border border-blue-700 rounded-lg p-4">
             <div className="text-2xl font-bold text-green-400">4.9★</div>
@@ -649,7 +649,7 @@ export default function App() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
-    if (currentView === 'home') document.title = "Mile Hybrid Automotive | Denver's Oldest Hybrid Shop Since 2008";
+    if (currentView === 'home') document.title = "Mile Hybrid Automotive | Denver's First Hybrid Shop Since 2008";
     if (currentView === 'booking') document.title = "Schedule Service | Mile Hybrid Automotive";
   }, [currentView]);
 
@@ -685,7 +685,7 @@ export default function App() {
 
   const faqs = [
     {
-      question: "Why is being Denver's oldest hybrid shop important?",
+      question: "Why is being Denver's first hybrid shop important?",
       answer: "We opened in 2008 when hybrid technology was still new and most shops wouldn't touch them. While other shops have come and gone, we've been here continuously for 17+ years, perfecting our craft. This means our technicians have literally decades of hybrid-specific experience - we've diagnosed and repaired problems that newer shops have never seen. Our longevity also means you can trust our lifetime warranty - we'll be here to honor it. When the first Prius hit Colorado roads, we were already the experts."
     },
     {
@@ -731,7 +731,7 @@ export default function App() {
       
       {/* Sticky Top Banner */}
       <div className="bg-red-600 text-white py-2 text-center text-sm font-medium sticky top-0 z-50">
-        ⚡ DENVER'S OLDEST HYBRID SHOP - SERVING YOU SINCE 2008 • For Fastest Service, Call Now: <a href="tel:7204454357" className="underline font-bold">(720) 445-4357</a>
+        ⚡ DENVER'S FIRST HYBRID SHOP - SERVING YOU SINCE 2008 • For Fastest Service, Call Now: <a href="tel:7204454357" className="underline font-bold">(720) 445-4357</a>
       </div>
 
       {/* Navigation */}
@@ -830,7 +830,7 @@ export default function App() {
                       <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center - Mile Hybrid Automotive Denver" width={144} height={144} className="h-36 w-auto carfax-glow" />
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
                         <Award className="h-5 w-5" />
-                        Denver's Oldest Hybrid Shop
+                        Denver's First Hybrid Shop
                       </span>
                       <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-900/30 border border-yellow-500/30 text-yellow-400 text-xs font-bold uppercase tracking-wide">
                         <Star className="h-4 w-4 fill-current" />
@@ -939,7 +939,7 @@ export default function App() {
                              <div className="flex items-center justify-between">
                                <div>
                                  <h3 className="text-white font-bold text-xl">17+ Years of Excellence</h3>
-                                 <p className="text-green-300 text-sm">Denver's oldest hybrid shop</p>
+                                 <p className="text-green-300 text-sm">Denver's first hybrid shop</p>
                                </div>
                                <div className="text-right">
                                  <div className="text-3xl font-bold text-white">25,000+</div>
@@ -1021,7 +1021,7 @@ export default function App() {
                 <div className="text-center mb-16">
                   <h2 className="text-4xl font-extrabold text-white mb-4 heading-glow">Why Denver Has Trusted Us Since 2008</h2>
                   <p className="text-blue-400 max-w-2xl mx-auto">
-                    As Denver's oldest and longest-running hybrid specialist, we've built our reputation on expertise, honesty, and exceptional service. When hybrids were new, we were already the experts.
+                    As Denver's first and longest-running hybrid specialist, we've built our reputation on expertise, honesty, and exceptional service. When hybrids were new, we were already the experts.
                   </p>
                 </div>
 
@@ -1035,7 +1035,7 @@ export default function App() {
                   <div className="bg-gradient-to-r from-green-900/30 to-blue-800 border border-green-500/30 rounded-2xl p-8 max-w-3xl mx-auto">
                     <h3 className="text-2xl font-bold text-white mb-3">Ready to Save Money & Get Expert Service?</h3>
                     <p className="text-blue-300 mb-6">
-                      Join 25,000+ Denver drivers who've trusted us since 2008. As Denver's oldest hybrid shop, we've been perfecting hybrid repair longer than anyone else. Schedule online in 60 seconds or call now.
+                      Join 25,000+ Denver drivers who've trusted us since 2008. As Denver's first hybrid shop, we've been perfecting hybrid repair longer than anyone else. Schedule online in 60 seconds or call now.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button onClick={navigateToBooking} className="font-bold">
@@ -1325,7 +1325,7 @@ export default function App() {
 
                   <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-blue-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
                     <h3 className="text-lg font-bold text-green-400 mb-2">Hybrid repair near me Denver?</h3>
-                    <p className="text-blue-300 text-sm">Mile Hybrid at 5142 E 39th Ave (near I-70). Denver's oldest hybrid shop since 2008. ASE certified, lifetime warranty, loaner cars available.</p>
+                    <p className="text-blue-300 text-sm">Mile Hybrid at 5142 E 39th Ave (near I-70). Denver's first hybrid shop since 2008. ASE certified, lifetime warranty, loaner cars available.</p>
                   </div>
 
                   <div className="bg-blue-800 border border-blue-700 border-l-4 border-l-green-500 rounded-lg p-5 hover:border-green-500/50 hover:border-l-green-400 transition-all duration-300 hover:-translate-y-1 stagger-child">
@@ -1630,14 +1630,14 @@ export default function App() {
                 </div>
 
                 <div className="mt-12 flex justify-center">
-                  <Button 
-                    variant="outline"
+                  <Button
+                    variant="primary"
                     href="https://g.page/r/CYAAvRr1oV2mEBM/review"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="gap-2"
+                    className="text-lg px-10 py-4 font-bold gap-2"
                   >
-                    <Star className="w-4 h-4" /> Leave Us a Review
+                    <Star className="w-5 h-5" /> Leave Us a Google Review
                   </Button>
                 </div>
               </div>
@@ -1668,9 +1668,20 @@ export default function App() {
                 <div className="mt-12 text-center bg-blue-900 border border-blue-700 rounded-xl p-8">
                   <h3 className="text-xl font-bold text-white mb-2">Still Have Questions?</h3>
                   <p className="text-blue-400 mb-6">Give us a call - we're happy to answer any questions about your specific vehicle or situation.</p>
-                  <Button variant="outline" href="tel:7204454357">
-                    <Phone className="mr-2 h-4 w-4" /> Call (720) 445-4357
-                  </Button>
+                  <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <Button variant="outline" href="tel:7204454357">
+                      <Phone className="mr-2 h-4 w-4" /> Call (720) 445-4357
+                    </Button>
+                    <Button
+                      variant="primary"
+                      href="https://g.page/r/CYAAvRr1oV2mEBM/review"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg px-8 py-4 font-bold gap-2"
+                    >
+                      <Star className="w-5 h-5" /> Leave Us a Google Review
+                    </Button>
+                  </div>
                 </div>
               </div>
               </FadeInSection>
@@ -1843,7 +1854,7 @@ export default function App() {
                 <span className="text-xl font-bold">MILE HYBRID Automotive</span>
               </div>
               <p className="text-blue-500 max-w-sm mb-6 leading-relaxed">
-                <strong className="text-blue-400">Denver's oldest hybrid and EV specialist - pioneering since 2008.</strong> When the first Prius hybrids hit Colorado roads, we were already the experts. ASE certified technicians, lifetime labor warranty, and honest service you can count on.
+                <strong className="text-blue-400">Denver's first hybrid and EV specialist - pioneering since 2008.</strong> When the first Prius hybrids hit Colorado roads, we were already the experts. ASE certified technicians, lifetime labor warranty, and honest service you can count on.
               </p>
               
               <div className="mb-6">
