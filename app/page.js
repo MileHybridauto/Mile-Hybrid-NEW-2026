@@ -1630,15 +1630,17 @@ export default function App() {
                 </div>
 
                 <div className="mt-12 flex justify-center">
-                  <Button
-                    variant="primary"
+                  <a
                     href="https://g.page/r/CYAAvRr1oV2mEBM/review"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-lg px-10 py-4 font-bold gap-2"
+                    className="inline-flex items-center gap-3 px-10 py-4 bg-yellow-500 hover:bg-yellow-400 text-gray-900 text-lg font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-0.5"
                   >
-                    <Star className="w-5 h-5" /> Leave Us a Google Review
-                  </Button>
+                    <span className="flex gap-1">
+                      {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                    </span>
+                    Leave Us a Google Review
+                  </a>
                 </div>
               </div>
               </FadeInSection>
@@ -1672,15 +1674,17 @@ export default function App() {
                     <Button variant="outline" href="tel:7204454357">
                       <Phone className="mr-2 h-4 w-4" /> Call (720) 445-4357
                     </Button>
-                    <Button
-                      variant="primary"
+                    <a
                       href="https://g.page/r/CYAAvRr1oV2mEBM/review"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg px-8 py-4 font-bold gap-2"
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-gray-900 text-lg font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-0.5"
                     >
-                      <Star className="w-5 h-5" /> Leave Us a Google Review
-                    </Button>
+                      <span className="flex gap-1">
+                        {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                      </span>
+                      Leave Us a Google Review
+                    </a>
                   </div>
                 </div>
               </div>
