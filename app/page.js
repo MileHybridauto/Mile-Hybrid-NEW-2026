@@ -827,7 +827,10 @@ export default function App() {
                   <div className="lg:w-1/2 mb-10 lg:mb-0">
                     
                     <div className="flex flex-wrap items-center gap-3 mb-6 border-t border-white/10 pt-6">
-                      <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center - Mile Hybrid Automotive Denver" width={144} height={144} className="h-36 w-auto carfax-glow" />
+                      <div className="flex items-center gap-3">
+                        <img src="/carfax-badge.webp" alt="Carfax 2025 Top-Rated Service Center - Mile Hybrid Automotive Denver" width={144} height={144} className="h-36 w-auto carfax-glow" />
+                        <span className="text-green-400 font-bold text-sm uppercase tracking-wide">5x Consecutive<br/>Top Service Center</span>
+                      </div>
                       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-900/30 border border-green-500/30 text-green-400 text-sm font-bold uppercase tracking-wide">
                         <Award className="h-5 w-5" />
                         Denver's First Hybrid Shop
@@ -1074,10 +1077,6 @@ export default function App() {
                       <li className="flex items-start gap-3">
                         <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
                         <span><strong>High-Voltage Safety Certified</strong> - Required certification for working on 300+ volt hybrid and EV systems. All techs recertify annually.</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span><strong>Toyota Factory Training</strong> - Our lead technician completed Toyota's official Techstream diagnostic training in 2009 and updates training every 2 years</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
